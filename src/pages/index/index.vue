@@ -2,7 +2,9 @@
 	<view class="content">
 		<image class="logo" src="/static/logo.png"></image>
 		<view>
-			<text class="title">{{title}}</text>
+			<text class="title" user-select>{{title}}</text>
+            <text>haha</text>
+            <view>hei</view>
 		</view>
 	</view>
 </template>

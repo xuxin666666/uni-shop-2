@@ -125,6 +125,5 @@ swiper {
             justify-content: space-around;
         }
     }
-    
 }
 </style>

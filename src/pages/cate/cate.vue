@@ -1,5 +1,6 @@
 <template>
     <view>
+        <my-search @click.native="gotoSearch"></my-search>
         <view class="scroll-view-container">
             <scroll-view
                 :scroll-y="true"
@@ -15,8 +16,8 @@
             <scroll-view
                 :scroll-y="true"
                 class="right-scroll-view"
-                :style="{height: wh + 'px'}"
                 :scroll-top="scrollTop"
+                :style="{height: wh + 'px'}"
             >
                 <block class="cate-lv2" v-for="(item2, i2) in cateLevel2" :key="i2">
                     <view class="cate-lv2-title">
@@ -48,7 +49,7 @@ export default {
     onLoad() {
         const sysInfo = uni.getSystemInfoSync();
         // console.log(sysInfo)
-        this.wh = sysInfo.windowHeight;
+        this.wh = sysInfo.windowHeight - 50;
 
         this.getCateList();
     },
@@ -73,6 +74,12 @@ export default {
             uni.navigateTo({
                 url: '/subpkg/goods_list/goods_list?cid=' + item.cat_id
             })
+        },
+        gotoSearch() {
+            // console.log(1)
+            uni.navigateTo({
+                url: '/subpkg/search/search'
+            })
         }
     },
 };
@@ -81,7 +88,8 @@ export default {
 <style lang='scss'>
 .scroll-view-container {
     display: flex;
-    // height: 100vh;
+    flex: 0 0 auto;
+    /* height: 100vh; */
 
     .left-scroll-view {
         width: 120px;
